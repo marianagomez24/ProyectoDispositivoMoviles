@@ -60,32 +60,36 @@ class _PerfilWidgetState extends State<PerfilWidget> {
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Column(
+                  const Column(
                     mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Align(
-                        alignment: const AlignmentDirectional(-1.0, 0.0),
-                        child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 10.0, 0.0, 0.0),
-                          child: Container(
-                            width: MediaQuery.sizeOf(context).width * 1.0,
-                            height: MediaQuery.sizeOf(context).height * 0.15,
-                            decoration: BoxDecoration(
-                              color: FlutterFlowTheme.of(context)
-                                  .secondaryBackground,
-                              borderRadius: BorderRadius.circular(0.0),
-                              shape: BoxShape.rectangle,
-                            ),
-                            alignment: const AlignmentDirectional(0.0, 0.0),
-                            child: Column(
+                    children: [],
+                  ),
+                  Align(
+                    alignment: const AlignmentDirectional(-1.0, 0.0),
+                    child: Padding(
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                      child: Container(
+                        width: MediaQuery.sizeOf(context).width * 1.0,
+                        height: MediaQuery.sizeOf(context).height * 0.15,
+                        decoration: BoxDecoration(
+                          color:
+                              FlutterFlowTheme.of(context).secondaryBackground,
+                          borderRadius: BorderRadius.circular(0.0),
+                          shape: BoxShape.rectangle,
+                        ),
+                        alignment: const AlignmentDirectional(0.0, 0.0),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Row(
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Align(
                                   alignment: const AlignmentDirectional(-1.0, 0.0),
                                   child: Padding(
                                     padding: const EdgeInsetsDirectional.fromSTEB(
-                                        1.0, 0.0, 0.0, 0.0),
+                                        10.0, 0.0, 0.0, 0.0),
                                     child: Container(
                                       width: 120.0,
                                       height: 120.0,
@@ -100,8 +104,7 @@ class _PerfilWidgetState extends State<PerfilWidget> {
                                     ),
                                   ),
                                 ),
-                                Align(
-                                  alignment: const AlignmentDirectional(1.0, 0.0),
+                                Expanded(
                                   child: Padding(
                                     padding: const EdgeInsetsDirectional.fromSTEB(
                                         8.0, 0.0, 8.0, 0.0),
@@ -175,10 +178,10 @@ class _PerfilWidgetState extends State<PerfilWidget> {
                                 ),
                               ],
                             ),
-                          ),
+                          ],
                         ),
                       ),
-                    ],
+                    ),
                   ),
                 ],
               ),
