@@ -10,3 +10,4 @@ export '/pages/categoria_citas/categoria_citas_widget.dart'
     show CategoriaCitasWidget;
 export '/pages/detalle_citas/detalle_citas_widget.dart' show DetalleCitasWidget;
 export '/pages/perfil/perfil_widget.dart' show PerfilWidget;
+export '/reservar_cita/reservar_cita_widget.dart' show ReservarCitaWidget;

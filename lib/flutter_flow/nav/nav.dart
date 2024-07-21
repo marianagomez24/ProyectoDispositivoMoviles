@@ -133,6 +133,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => params.isEmpty
               ? const NavBarPage(initialPage: 'Perfil')
               : const PerfilWidget(),
+        ),
+        FFRoute(
+          name: 'ReservarCita',
+          path: '/reservarCita',
+          builder: (context, params) => const ReservarCitaWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
