@@ -9,3 +9,4 @@ export '/pages/chat/chat_widget.dart' show ChatWidget;
 export '/pages/categoria_citas/categoria_citas_widget.dart'
     show CategoriaCitasWidget;
 export '/pages/detalle_citas/detalle_citas_widget.dart' show DetalleCitasWidget;
+export '/pages/perfil/perfil_widget.dart' show PerfilWidget;

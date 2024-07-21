@@ -116,6 +116,7 @@ class _NavBarPageState extends State<NavBarPage> {
     final tabs = {
       'ChatEmergencia': const ChatEmergenciaWidget(),
       'Settings': const SettingsWidget(),
+      'Perfil': const PerfilWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
 
@@ -137,6 +138,14 @@ class _NavBarPageState extends State<NavBarPage> {
           BottomNavigationBarItem(
             icon: Icon(
               Icons.home,
+              size: 24.0,
+            ),
+            label: 'Home',
+            tooltip: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.settings_sharp,
               size: 24.0,
             ),
             label: 'Home',
