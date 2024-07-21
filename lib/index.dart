@@ -10,4 +10,8 @@ export '/pages/categoria_citas/categoria_citas_widget.dart'
     show CategoriaCitasWidget;
 export '/pages/detalle_citas/detalle_citas_widget.dart' show DetalleCitasWidget;
 export '/pages/perfil/perfil_widget.dart' show PerfilWidget;
-export '/reservar_cita/reservar_cita_widget.dart' show ReservarCitaWidget;
+export '/pages/chat_de_soporte/chat_de_soporte_widget.dart'
+    show ChatDeSoporteWidget;
+export '/pages/actualizar_info/actualizar_info_widget.dart'
+    show ActualizarInfoWidget;
+export '/pages/mis_citas/mis_citas_widget.dart' show MisCitasWidget;

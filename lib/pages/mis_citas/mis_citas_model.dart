@@ -1,8 +1,8 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import 'reservar_cita_widget.dart' show ReservarCitaWidget;
+import 'mis_citas_widget.dart' show MisCitasWidget;
 import 'package:flutter/material.dart';
 
-class ReservarCitaModel extends FlutterFlowModel<ReservarCitaWidget> {
+class MisCitasModel extends FlutterFlowModel<MisCitasWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();

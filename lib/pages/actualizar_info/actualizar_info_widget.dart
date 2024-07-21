@@ -4,25 +4,25 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'perfil_model.dart';
-export 'perfil_model.dart';
+import 'actualizar_info_model.dart';
+export 'actualizar_info_model.dart';
 
-class PerfilWidget extends StatefulWidget {
-  const PerfilWidget({super.key});
+class ActualizarInfoWidget extends StatefulWidget {
+  const ActualizarInfoWidget({super.key});
 
   @override
-  State<PerfilWidget> createState() => _PerfilWidgetState();
+  State<ActualizarInfoWidget> createState() => _ActualizarInfoWidgetState();
 }
 
-class _PerfilWidgetState extends State<PerfilWidget> {
-  late PerfilModel _model;
+class _ActualizarInfoWidgetState extends State<ActualizarInfoWidget> {
+  late ActualizarInfoModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => PerfilModel());
+    _model = createModel(context, () => ActualizarInfoModel());
 
     _model.txtUsuarioTextController ??= TextEditingController();
     _model.txtUsuarioFocusNode ??= FocusNode();

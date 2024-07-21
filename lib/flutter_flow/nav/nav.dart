@@ -135,9 +135,23 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               : const PerfilWidget(),
         ),
         FFRoute(
-          name: 'ReservarCita',
-          path: '/reservarCita',
-          builder: (context, params) => const ReservarCitaWidget(),
+          name: 'ChatDeSoporte',
+          path: '/chatDeSoporte',
+          builder: (context, params) => params.isEmpty
+              ? const NavBarPage(initialPage: 'ChatDeSoporte')
+              : const ChatDeSoporteWidget(),
+        ),
+        FFRoute(
+          name: 'ActualizarInfo',
+          path: '/actualizarInfo',
+          builder: (context, params) => params.isEmpty
+              ? const NavBarPage(initialPage: 'ActualizarInfo')
+              : const ActualizarInfoWidget(),
+        ),
+        FFRoute(
+          name: 'MisCitas',
+          path: '/misCitas',
+          builder: (context, params) => const MisCitasWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

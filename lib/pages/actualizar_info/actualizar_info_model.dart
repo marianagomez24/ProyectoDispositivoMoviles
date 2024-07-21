@@ -1,8 +1,8 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import 'perfil_widget.dart' show PerfilWidget;
+import 'actualizar_info_widget.dart' show ActualizarInfoWidget;
 import 'package:flutter/material.dart';
 
-class PerfilModel extends FlutterFlowModel<PerfilWidget> {
+class ActualizarInfoModel extends FlutterFlowModel<ActualizarInfoWidget> {
   ///  State fields for stateful widgets in this page.
 
   // State field(s) for txtUsuario widget.
