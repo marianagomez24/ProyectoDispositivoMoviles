@@ -23,9 +23,6 @@ class _PerfilWidgetState extends State<PerfilWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => PerfilModel());
-
-    _model.textController ??= TextEditingController();
-    _model.textFieldFocusNode ??= FocusNode();
   }
 
   @override
@@ -57,16 +54,17 @@ class _PerfilWidgetState extends State<PerfilWidget> {
             mainAxisSize: MainAxisSize.max,
             children: [
               Row(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Align(
-                    alignment: const AlignmentDirectional(0.0, 0.0),
+                    alignment: const AlignmentDirectional(-1.0, 0.0),
                     child: Padding(
-                      padding: const EdgeInsets.all(10.0),
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
                       child: Container(
-                        width: MediaQuery.sizeOf(context).width * 0.85,
-                        height: MediaQuery.sizeOf(context).height * 0.1,
+                        width: MediaQuery.sizeOf(context).width * 1.0,
+                        height: MediaQuery.sizeOf(context).height * 0.15,
                         decoration: BoxDecoration(
                           color:
                               FlutterFlowTheme.of(context).secondaryBackground,
@@ -75,70 +73,21 @@ class _PerfilWidgetState extends State<PerfilWidget> {
                         ),
                         alignment: const AlignmentDirectional(0.0, 0.0),
                         child: Align(
-                          alignment: const AlignmentDirectional(0.0, 0.0),
+                          alignment: const AlignmentDirectional(-1.0, 0.0),
                           child: Padding(
                             padding: const EdgeInsetsDirectional.fromSTEB(
-                                8.0, 0.0, 8.0, 0.0),
-                            child: TextFormField(
-                              controller: _model.textController,
-                              focusNode: _model.textFieldFocusNode,
-                              autofocus: true,
-                              obscureText: false,
-                              decoration: InputDecoration(
-                                labelText: 'Label here...',
-                                labelStyle: FlutterFlowTheme.of(context)
-                                    .labelMedium
-                                    .override(
-                                      fontFamily: 'Readex Pro',
-                                      letterSpacing: 0.0,
-                                    ),
-                                hintStyle: FlutterFlowTheme.of(context)
-                                    .labelMedium
-                                    .override(
-                                      fontFamily: 'Readex Pro',
-                                      letterSpacing: 0.0,
-                                    ),
-                                enabledBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color:
-                                        FlutterFlowTheme.of(context).alternate,
-                                    width: 2.0,
-                                  ),
-                                  borderRadius: BorderRadius.circular(8.0),
-                                ),
-                                focusedBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: FlutterFlowTheme.of(context).primary,
-                                    width: 2.0,
-                                  ),
-                                  borderRadius: BorderRadius.circular(8.0),
-                                ),
-                                errorBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: FlutterFlowTheme.of(context).error,
-                                    width: 2.0,
-                                  ),
-                                  borderRadius: BorderRadius.circular(8.0),
-                                ),
-                                focusedErrorBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: FlutterFlowTheme.of(context).error,
-                                    width: 2.0,
-                                  ),
-                                  borderRadius: BorderRadius.circular(8.0),
-                                ),
-                                prefixIcon: const FaIcon(
-                                  FontAwesomeIcons.userEdit,
-                                ),
+                                20.0, 0.0, 0.0, 0.0),
+                            child: Container(
+                              width: 120.0,
+                              height: 120.0,
+                              clipBehavior: Clip.antiAlias,
+                              decoration: const BoxDecoration(
+                                shape: BoxShape.circle,
                               ),
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: 'Readex Pro',
-                                    letterSpacing: 0.0,
-                                  ),
-                              validator: _model.textControllerValidator
-                                  .asValidator(context),
+                              child: Image.network(
+                                'https://picsum.photos/seed/372/600',
+                                fit: BoxFit.cover,
+                              ),
                             ),
                           ),
                         ),
@@ -157,14 +106,55 @@ class _PerfilWidgetState extends State<PerfilWidget> {
                       padding: const EdgeInsets.all(10.0),
                       child: Container(
                         width: MediaQuery.sizeOf(context).width * 0.85,
-                        height: MediaQuery.sizeOf(context).height * 0.1,
-                        decoration: BoxDecoration(
-                          color:
-                              FlutterFlowTheme.of(context).secondaryBackground,
-                          borderRadius: BorderRadius.circular(0.0),
+                        height: MediaQuery.sizeOf(context).height * 0.08,
+                        decoration: const BoxDecoration(
+                          color: Color(0xFF8CB9D2),
+                          borderRadius: BorderRadius.only(
+                            bottomLeft: Radius.circular(20.0),
+                            bottomRight: Radius.circular(20.0),
+                            topLeft: Radius.circular(20.0),
+                            topRight: Radius.circular(20.0),
+                          ),
                           shape: BoxShape.rectangle,
                         ),
                         alignment: const AlignmentDirectional(0.0, 0.0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            const Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  15.0, 0.0, 0.0, 0.0),
+                              child: FaIcon(
+                                FontAwesomeIcons.userEdit,
+                                color: Color(0xFF04132B),
+                                size: 24.0,
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  10.0, 0.0, 0.0, 0.0),
+                              child: Text(
+                                'Información Personal',
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Readex Pro',
+                                      color: const Color(0xFF04132B),
+                                      letterSpacing: 0.0,
+                                    ),
+                              ),
+                            ),
+                            const Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  95.0, 0.0, 0.0, 0.0),
+                              child: FaIcon(
+                                FontAwesomeIcons.edit,
+                                color: Color(0xFF04132B),
+                                size: 24.0,
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
@@ -180,14 +170,55 @@ class _PerfilWidgetState extends State<PerfilWidget> {
                       padding: const EdgeInsets.all(10.0),
                       child: Container(
                         width: MediaQuery.sizeOf(context).width * 0.85,
-                        height: MediaQuery.sizeOf(context).height * 0.1,
-                        decoration: BoxDecoration(
-                          color:
-                              FlutterFlowTheme.of(context).secondaryBackground,
-                          borderRadius: BorderRadius.circular(0.0),
+                        height: MediaQuery.sizeOf(context).height * 0.08,
+                        decoration: const BoxDecoration(
+                          color: Color(0xFF8CB9D2),
+                          borderRadius: BorderRadius.only(
+                            bottomLeft: Radius.circular(20.0),
+                            bottomRight: Radius.circular(20.0),
+                            topLeft: Radius.circular(20.0),
+                            topRight: Radius.circular(20.0),
+                          ),
                           shape: BoxShape.rectangle,
                         ),
                         alignment: const AlignmentDirectional(0.0, 0.0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            const Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  15.0, 0.0, 0.0, 0.0),
+                              child: FaIcon(
+                                FontAwesomeIcons.userEdit,
+                                color: Color(0xFF04132B),
+                                size: 24.0,
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  10.0, 0.0, 0.0, 0.0),
+                              child: Text(
+                                'Información Personal',
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Readex Pro',
+                                      color: const Color(0xFF04132B),
+                                      letterSpacing: 0.0,
+                                    ),
+                              ),
+                            ),
+                            const Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  95.0, 0.0, 0.0, 0.0),
+                              child: FaIcon(
+                                FontAwesomeIcons.edit,
+                                color: Color(0xFF04132B),
+                                size: 24.0,
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
@@ -203,14 +234,55 @@ class _PerfilWidgetState extends State<PerfilWidget> {
                       padding: const EdgeInsets.all(10.0),
                       child: Container(
                         width: MediaQuery.sizeOf(context).width * 0.85,
-                        height: MediaQuery.sizeOf(context).height * 0.1,
-                        decoration: BoxDecoration(
-                          color:
-                              FlutterFlowTheme.of(context).secondaryBackground,
-                          borderRadius: BorderRadius.circular(0.0),
+                        height: MediaQuery.sizeOf(context).height * 0.08,
+                        decoration: const BoxDecoration(
+                          color: Color(0xFF8CB9D2),
+                          borderRadius: BorderRadius.only(
+                            bottomLeft: Radius.circular(20.0),
+                            bottomRight: Radius.circular(20.0),
+                            topLeft: Radius.circular(20.0),
+                            topRight: Radius.circular(20.0),
+                          ),
                           shape: BoxShape.rectangle,
                         ),
                         alignment: const AlignmentDirectional(0.0, 0.0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            const Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  15.0, 0.0, 0.0, 0.0),
+                              child: FaIcon(
+                                FontAwesomeIcons.userEdit,
+                                color: Color(0xFF04132B),
+                                size: 24.0,
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  10.0, 0.0, 0.0, 0.0),
+                              child: Text(
+                                'Información Personal',
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Readex Pro',
+                                      color: const Color(0xFF04132B),
+                                      letterSpacing: 0.0,
+                                    ),
+                              ),
+                            ),
+                            const Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  95.0, 0.0, 0.0, 0.0),
+                              child: FaIcon(
+                                FontAwesomeIcons.edit,
+                                color: Color(0xFF04132B),
+                                size: 24.0,
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
@@ -226,14 +298,119 @@ class _PerfilWidgetState extends State<PerfilWidget> {
                       padding: const EdgeInsets.all(10.0),
                       child: Container(
                         width: MediaQuery.sizeOf(context).width * 0.85,
-                        height: MediaQuery.sizeOf(context).height * 0.1,
-                        decoration: BoxDecoration(
-                          color:
-                              FlutterFlowTheme.of(context).secondaryBackground,
-                          borderRadius: BorderRadius.circular(0.0),
+                        height: MediaQuery.sizeOf(context).height * 0.08,
+                        decoration: const BoxDecoration(
+                          color: Color(0xFF8CB9D2),
+                          borderRadius: BorderRadius.only(
+                            bottomLeft: Radius.circular(20.0),
+                            bottomRight: Radius.circular(20.0),
+                            topLeft: Radius.circular(20.0),
+                            topRight: Radius.circular(20.0),
+                          ),
                           shape: BoxShape.rectangle,
                         ),
                         alignment: const AlignmentDirectional(0.0, 0.0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            const Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  15.0, 0.0, 0.0, 0.0),
+                              child: FaIcon(
+                                FontAwesomeIcons.userEdit,
+                                color: Color(0xFF04132B),
+                                size: 24.0,
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  10.0, 0.0, 0.0, 0.0),
+                              child: Text(
+                                'Información Personal',
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Readex Pro',
+                                      color: const Color(0xFF04132B),
+                                      letterSpacing: 0.0,
+                                    ),
+                              ),
+                            ),
+                            const Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  95.0, 0.0, 0.0, 0.0),
+                              child: FaIcon(
+                                FontAwesomeIcons.edit,
+                                color: Color(0xFF04132B),
+                                size: 24.0,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              Row(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Align(
+                    alignment: const AlignmentDirectional(0.0, 0.0),
+                    child: Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: Container(
+                        width: MediaQuery.sizeOf(context).width * 0.85,
+                        height: MediaQuery.sizeOf(context).height * 0.08,
+                        decoration: const BoxDecoration(
+                          color: Color(0xFF8CB9D2),
+                          borderRadius: BorderRadius.only(
+                            bottomLeft: Radius.circular(20.0),
+                            bottomRight: Radius.circular(20.0),
+                            topLeft: Radius.circular(20.0),
+                            topRight: Radius.circular(20.0),
+                          ),
+                          shape: BoxShape.rectangle,
+                        ),
+                        alignment: const AlignmentDirectional(0.0, 0.0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            const Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  15.0, 0.0, 0.0, 0.0),
+                              child: FaIcon(
+                                FontAwesomeIcons.userEdit,
+                                color: Color(0xFF04132B),
+                                size: 24.0,
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  10.0, 0.0, 0.0, 0.0),
+                              child: Text(
+                                'Información Personal',
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Readex Pro',
+                                      color: const Color(0xFF04132B),
+                                      letterSpacing: 0.0,
+                                    ),
+                              ),
+                            ),
+                            const Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  95.0, 0.0, 0.0, 0.0),
+                              child: FaIcon(
+                                FontAwesomeIcons.edit,
+                                color: Color(0xFF04132B),
+                                size: 24.0,
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
