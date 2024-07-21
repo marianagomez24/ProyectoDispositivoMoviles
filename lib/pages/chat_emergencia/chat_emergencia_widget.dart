@@ -82,7 +82,7 @@ class _ChatEmergenciaWidgetState extends State<ChatEmergenciaWidget> {
           ),
           actions: [
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 15.0, 0.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 15.0, 5.0),
               child: FlutterFlowIconButton(
                 borderColor: const Color(0xFF021B38),
                 borderRadius: 20.0,
