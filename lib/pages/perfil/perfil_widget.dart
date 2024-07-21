@@ -146,7 +146,7 @@ class _PerfilWidgetState extends State<PerfilWidget> {
                             ),
                             const Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  95.0, 0.0, 0.0, 0.0),
+                                  90.0, 0.0, 0.0, 0.0),
                               child: FaIcon(
                                 FontAwesomeIcons.edit,
                                 color: Color(0xFF04132B),
@@ -198,7 +198,7 @@ class _PerfilWidgetState extends State<PerfilWidget> {
                               padding: const EdgeInsetsDirectional.fromSTEB(
                                   10.0, 0.0, 0.0, 0.0),
                               child: Text(
-                                'Información Personal',
+                                'Métodos de Pago',
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
@@ -210,7 +210,7 @@ class _PerfilWidgetState extends State<PerfilWidget> {
                             ),
                             const Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  95.0, 0.0, 0.0, 0.0),
+                                  115.0, 0.0, 0.0, 0.0),
                               child: FaIcon(
                                 FontAwesomeIcons.edit,
                                 color: Color(0xFF04132B),
@@ -262,7 +262,7 @@ class _PerfilWidgetState extends State<PerfilWidget> {
                               padding: const EdgeInsetsDirectional.fromSTEB(
                                   10.0, 0.0, 0.0, 0.0),
                               child: Text(
-                                'Información Personal',
+                                'Cambiar Correo Electronico ',
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
@@ -272,13 +272,16 @@ class _PerfilWidgetState extends State<PerfilWidget> {
                                     ),
                               ),
                             ),
-                            const Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  95.0, 0.0, 0.0, 0.0),
-                              child: FaIcon(
-                                FontAwesomeIcons.edit,
-                                color: Color(0xFF04132B),
-                                size: 24.0,
+                            const Align(
+                              alignment: AlignmentDirectional(0.0, 0.0),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    45.0, 0.0, 0.0, 0.0),
+                                child: FaIcon(
+                                  FontAwesomeIcons.edit,
+                                  color: Color(0xFF04132B),
+                                  size: 24.0,
+                                ),
                               ),
                             ),
                           ],
