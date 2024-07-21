@@ -6,10 +6,10 @@ class PerfilModel extends FlutterFlowModel<PerfilWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode;
-  TextEditingController? textController;
-  String? Function(BuildContext, String?)? textControllerValidator;
+  // State field(s) for txtUsuario widget.
+  FocusNode? txtUsuarioFocusNode;
+  TextEditingController? txtUsuarioTextController;
+  String? Function(BuildContext, String?)? txtUsuarioTextControllerValidator;
 
   @override
   void initState(BuildContext context) {}
@@ -17,7 +17,7 @@ class PerfilModel extends FlutterFlowModel<PerfilWidget> {
   @override
   void dispose() {
     unfocusNode.dispose();
-    textFieldFocusNode?.dispose();
-    textController?.dispose();
+    txtUsuarioFocusNode?.dispose();
+    txtUsuarioTextController?.dispose();
   }
 }

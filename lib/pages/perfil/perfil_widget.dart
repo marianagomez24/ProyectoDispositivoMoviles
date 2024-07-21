@@ -24,8 +24,8 @@ class _PerfilWidgetState extends State<PerfilWidget> {
     super.initState();
     _model = createModel(context, () => PerfilModel());
 
-    _model.textController ??= TextEditingController();
-    _model.textFieldFocusNode ??= FocusNode();
+    _model.txtUsuarioTextController ??= TextEditingController();
+    _model.txtUsuarioFocusNode ??= FocusNode();
   }
 
   @override
@@ -60,10 +60,6 @@ class _PerfilWidgetState extends State<PerfilWidget> {
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  const Column(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [],
-                  ),
                   Align(
                     alignment: const AlignmentDirectional(-1.0, 0.0),
                     child: Padding(
@@ -109,12 +105,13 @@ class _PerfilWidgetState extends State<PerfilWidget> {
                                     padding: const EdgeInsetsDirectional.fromSTEB(
                                         8.0, 0.0, 8.0, 0.0),
                                     child: TextFormField(
-                                      controller: _model.textController,
-                                      focusNode: _model.textFieldFocusNode,
+                                      controller:
+                                          _model.txtUsuarioTextController,
+                                      focusNode: _model.txtUsuarioFocusNode,
                                       autofocus: true,
                                       obscureText: false,
                                       decoration: InputDecoration(
-                                        labelText: 'Label here...',
+                                        labelText: 'Nombre de Usuario',
                                         labelStyle: FlutterFlowTheme.of(context)
                                             .labelMedium
                                             .override(
@@ -171,7 +168,8 @@ class _PerfilWidgetState extends State<PerfilWidget> {
                                             fontFamily: 'Readex Pro',
                                             letterSpacing: 0.0,
                                           ),
-                                      validator: _model.textControllerValidator
+                                      validator: _model
+                                          .txtUsuarioTextControllerValidator
                                           .asValidator(context),
                                     ),
                                   ),
@@ -418,7 +416,7 @@ class _PerfilWidgetState extends State<PerfilWidget> {
                               padding: const EdgeInsetsDirectional.fromSTEB(
                                   10.0, 0.0, 0.0, 0.0),
                               child: Text(
-                                'Información Personal',
+                                'Cambiar Contraseña',
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
@@ -430,7 +428,7 @@ class _PerfilWidgetState extends State<PerfilWidget> {
                             ),
                             const Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  95.0, 0.0, 0.0, 0.0),
+                                  100.0, 0.0, 0.0, 0.0),
                               child: FaIcon(
                                 FontAwesomeIcons.edit,
                                 color: Color(0xFF04132B),
@@ -482,7 +480,7 @@ class _PerfilWidgetState extends State<PerfilWidget> {
                               padding: const EdgeInsetsDirectional.fromSTEB(
                                   10.0, 0.0, 0.0, 0.0),
                               child: Text(
-                                'Información Personal',
+                                'Soporte',
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
@@ -494,7 +492,7 @@ class _PerfilWidgetState extends State<PerfilWidget> {
                             ),
                             const Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  95.0, 0.0, 0.0, 0.0),
+                                  180.0, 0.0, 0.0, 0.0),
                               child: FaIcon(
                                 FontAwesomeIcons.edit,
                                 color: Color(0xFF04132B),
