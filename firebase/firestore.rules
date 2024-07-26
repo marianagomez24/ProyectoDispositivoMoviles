@@ -8,6 +8,27 @@ service cloud.firestore {
       allow delete: if request.auth.uid == document;
     }
 
+    match /CategoriaCitas/{document} {
+      allow create: if true;
+      allow read: if true;
+      allow write: if false;
+      allow delete: if false;
+    }
+
+    match /reservaciones/{document} {
+      allow create: if true;
+      allow read: if true;
+      allow write: if false;
+      allow delete: if false;
+    }
+
+    match /citasAntiguas/{document} {
+      allow create: if true;
+      allow read: if true;
+      allow write: if false;
+      allow delete: if false;
+    }
+
     match /chats/{document} {
       allow create: if true;
       allow read: if true;
@@ -15,16 +36,11 @@ service cloud.firestore {
       allow delete: if false;
     }
 
-    match /chats/{parent}/chat_messages/{document} {
+    match /chat_message/{document} {
       allow create: if true;
       allow read: if true;
       allow write: if false;
       allow delete: if false;
     }
-
-    match /{path=**}/chat_messages/{document} {
-      allow read: if true;
-    }
-
   }
 }

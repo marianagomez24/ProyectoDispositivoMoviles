@@ -1,16 +1,16 @@
 {
   "indexes": [
     {
-      "collectionGroup": "chats",
+      "collectionGroup": "chat_message",
       "queryScope": "COLLECTION",
       "fields": [
         {
-          "fieldPath": "userIds",
-          "arrayConfig": "CONTAINS"
+          "fieldPath": "chat_user",
+          "order": "ASCENDING"
         },
         {
-          "fieldPath": "timeStamp",
-          "order": "DESCENDING"
+          "fieldPath": "timestamp",
+          "order": "ASCENDING"
         }
       ]
     }

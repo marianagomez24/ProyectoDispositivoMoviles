@@ -6,7 +6,6 @@ import 'package:provider/provider.dart';
 import '/auth/base_auth_user_provider.dart';
 
 import '/index.dart';
-import '/main.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
@@ -73,27 +72,18 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? const NavBarPage() : const IniciarSesionWidget(),
+          appStateNotifier.loggedIn ? const ChatEmergenciaWidget() : const MenuWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) =>
-              appStateNotifier.loggedIn ? const NavBarPage() : const IniciarSesionWidget(),
+              appStateNotifier.loggedIn ? const ChatEmergenciaWidget() : const MenuWidget(),
         ),
         FFRoute(
           name: 'ChatEmergencia',
           path: '/chatEmergencia',
-          builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'ChatEmergencia')
-              : const ChatEmergenciaWidget(),
-        ),
-        FFRoute(
-          name: 'Settings',
-          path: '/settings',
-          builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'Settings')
-              : const SettingsWidget(),
+          builder: (context, params) => const ChatEmergenciaWidget(),
         ),
         FFRoute(
           name: 'IniciarSesion',
@@ -115,6 +105,30 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               isList: false,
               collectionNamePath: ['chats'],
             ),
+            userName: params.getParam(
+              'userName',
+              ParamType.String,
+            ),
+            userEmail: params.getParam(
+              'userEmail',
+              ParamType.String,
+            ),
+            chatUser: params.getParam(
+              'chatUser',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['chats'],
+            ),
+            userProfile: params.getParam(
+              'userProfile',
+              ParamType.String,
+            ),
+            userRef: params.getParam(
+              'userRef',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['users'],
+            ),
           ),
         ),
         FFRoute(
@@ -125,33 +139,59 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'DetalleCitas',
           path: '/detalleCitas',
-          builder: (context, params) => const DetalleCitasWidget(),
-        ),
-        FFRoute(
-          name: 'Perfil',
-          path: '/perfil',
-          builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'Perfil')
-              : const PerfilWidget(),
-        ),
-        FFRoute(
-          name: 'ChatDeSoporte',
-          path: '/chatDeSoporte',
-          builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'ChatDeSoporte')
-              : const ChatDeSoporteWidget(),
-        ),
-        FFRoute(
-          name: 'ActualizarInfo',
-          path: '/actualizarInfo',
-          builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'ActualizarInfo')
-              : const ActualizarInfoWidget(),
+          builder: (context, params) => DetalleCitasWidget(
+            detalleDeCitas: params.getParam(
+              'detalleDeCitas',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['CategoriaCitas'],
+            ),
+          ),
         ),
         FFRoute(
           name: 'MisCitas',
           path: '/misCitas',
           builder: (context, params) => const MisCitasWidget(),
+        ),
+        FFRoute(
+          name: 'ActualizarPerfil',
+          path: '/actualizarPerfil',
+          builder: (context, params) => const ActualizarPerfilWidget(),
+        ),
+        FFRoute(
+          name: 'InfoPerfil',
+          path: '/infoPerfil',
+          builder: (context, params) => const InfoPerfilWidget(),
+        ),
+        FFRoute(
+          name: 'ActualizarContra',
+          path: '/actualizarContra',
+          builder: (context, params) => const ActualizarContraWidget(),
+        ),
+        FFRoute(
+          name: 'ActualizarCorreo',
+          path: '/actualizarCorreo',
+          builder: (context, params) => const ActualizarCorreoWidget(),
+        ),
+        FFRoute(
+          name: 'ActualizarMetodoDePago',
+          path: '/actualizarMetodoDePago',
+          builder: (context, params) => const ActualizarMetodoDePagoWidget(),
+        ),
+        FFRoute(
+          name: 'MetodoPago',
+          path: '/metodoPago',
+          builder: (context, params) => const MetodoPagoWidget(),
+        ),
+        FFRoute(
+          name: 'OlvideContrasena',
+          path: '/olvideContrasena',
+          builder: (context, params) => const OlvideContrasenaWidget(),
+        ),
+        FFRoute(
+          name: 'Menu',
+          path: '/menu',
+          builder: (context, params) => const MenuWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
@@ -322,7 +362,7 @@ class FFRoute {
 
           if (requireAuth && !appStateNotifier.loggedIn) {
             appStateNotifier.setRedirectLocationIfUnset(state.uri.toString());
-            return '/iniciarSesion';
+            return '/menu';
           }
           return null;
         },

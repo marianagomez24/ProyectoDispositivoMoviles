@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:collection/collection.dart';
 
 import '/backend/schema/util/firestore_util.dart';
-import '/backend/schema/util/schema_util.dart';
 
 import 'index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -16,38 +15,43 @@ class ChatsRecord extends FirestoreRecord {
     _initializeFields();
   }
 
-  // "userIds" field.
-  List<DocumentReference>? _userIds;
-  List<DocumentReference> get userIds => _userIds ?? const [];
-  bool hasUserIds() => _userIds != null;
+  // "userA" field.
+  DocumentReference? _userA;
+  DocumentReference? get userA => _userA;
+  bool hasUserA() => _userA != null;
 
-  // "lastMessage" field.
+  // "userB" field.
+  DocumentReference? _userB;
+  DocumentReference? get userB => _userB;
+  bool hasUserB() => _userB != null;
+
+  // "last_message" field.
   String? _lastMessage;
   String get lastMessage => _lastMessage ?? '';
   bool hasLastMessage() => _lastMessage != null;
 
-  // "userNames" field.
-  List<String>? _userNames;
-  List<String> get userNames => _userNames ?? const [];
-  bool hasUserNames() => _userNames != null;
+  // "last_message_time" field.
+  DateTime? _lastMessageTime;
+  DateTime? get lastMessageTime => _lastMessageTime;
+  bool hasLastMessageTime() => _lastMessageTime != null;
 
-  // "timeStamp" field.
-  DateTime? _timeStamp;
-  DateTime? get timeStamp => _timeStamp;
-  bool hasTimeStamp() => _timeStamp != null;
+  // "image" field.
+  String? _image;
+  String get image => _image ?? '';
+  bool hasImage() => _image != null;
 
-  // "lastMessageSeenBy" field.
-  List<DocumentReference>? _lastMessageSeenBy;
-  List<DocumentReference> get lastMessageSeenBy =>
-      _lastMessageSeenBy ?? const [];
-  bool hasLastMessageSeenBy() => _lastMessageSeenBy != null;
+  // "user" field.
+  DocumentReference? _user;
+  DocumentReference? get user => _user;
+  bool hasUser() => _user != null;
 
   void _initializeFields() {
-    _userIds = getDataList(snapshotData['userIds']);
-    _lastMessage = snapshotData['lastMessage'] as String?;
-    _userNames = getDataList(snapshotData['userNames']);
-    _timeStamp = snapshotData['timeStamp'] as DateTime?;
-    _lastMessageSeenBy = getDataList(snapshotData['lastMessageSeenBy']);
+    _userA = snapshotData['userA'] as DocumentReference?;
+    _userB = snapshotData['userB'] as DocumentReference?;
+    _lastMessage = snapshotData['last_message'] as String?;
+    _lastMessageTime = snapshotData['last_message_time'] as DateTime?;
+    _image = snapshotData['image'] as String?;
+    _user = snapshotData['user'] as DocumentReference?;
   }
 
   static CollectionReference get collection =>
@@ -84,13 +88,21 @@ class ChatsRecord extends FirestoreRecord {
 }
 
 Map<String, dynamic> createChatsRecordData({
+  DocumentReference? userA,
+  DocumentReference? userB,
   String? lastMessage,
-  DateTime? timeStamp,
+  DateTime? lastMessageTime,
+  String? image,
+  DocumentReference? user,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
-      'lastMessage': lastMessage,
-      'timeStamp': timeStamp,
+      'userA': userA,
+      'userB': userB,
+      'last_message': lastMessage,
+      'last_message_time': lastMessageTime,
+      'image': image,
+      'user': user,
     }.withoutNulls,
   );
 
@@ -102,21 +114,22 @@ class ChatsRecordDocumentEquality implements Equality<ChatsRecord> {
 
   @override
   bool equals(ChatsRecord? e1, ChatsRecord? e2) {
-    const listEquality = ListEquality();
-    return listEquality.equals(e1?.userIds, e2?.userIds) &&
+    return e1?.userA == e2?.userA &&
+        e1?.userB == e2?.userB &&
         e1?.lastMessage == e2?.lastMessage &&
-        listEquality.equals(e1?.userNames, e2?.userNames) &&
-        e1?.timeStamp == e2?.timeStamp &&
-        listEquality.equals(e1?.lastMessageSeenBy, e2?.lastMessageSeenBy);
+        e1?.lastMessageTime == e2?.lastMessageTime &&
+        e1?.image == e2?.image &&
+        e1?.user == e2?.user;
   }
 
   @override
   int hash(ChatsRecord? e) => const ListEquality().hash([
-        e?.userIds,
+        e?.userA,
+        e?.userB,
         e?.lastMessage,
-        e?.userNames,
-        e?.timeStamp,
-        e?.lastMessageSeenBy
+        e?.lastMessageTime,
+        e?.image,
+        e?.user
       ]);
 
   @override
