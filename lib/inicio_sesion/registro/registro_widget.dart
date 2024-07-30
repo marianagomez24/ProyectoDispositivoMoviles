@@ -433,7 +433,7 @@ class _RegistroWidgetState extends State<RegistroWidget> {
                         displayName: _model.textController1.text,
                       ));
 
-                  context.goNamedAuth('ChatEmergencia', context.mounted);
+                  context.goNamedAuth('Menu', context.mounted);
                 },
                 text: 'Registrarse',
                 options: FFButtonOptions(

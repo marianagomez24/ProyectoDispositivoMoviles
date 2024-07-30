@@ -66,13 +66,22 @@ class _ActualizarCorreoWidgetState extends State<ActualizarCorreoWidget> {
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   children: [
-                    const Padding(
+                    Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 0.0, 0.0),
-                      child: Icon(
-                        Icons.arrow_back,
-                        color: Color(0xFF04132B),
-                        size: 30.0,
+                          const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 0.0, 0.0),
+                      child: InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          context.safePop();
+                        },
+                        child: const Icon(
+                          Icons.arrow_back,
+                          color: Color(0xFF04132B),
+                          size: 30.0,
+                        ),
                       ),
                     ),
                     Padding(

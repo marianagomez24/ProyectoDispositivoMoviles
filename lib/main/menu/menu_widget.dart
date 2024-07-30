@@ -158,7 +158,7 @@ class _MenuWidgetState extends State<MenuWidget> with TickerProviderStateMixin {
               size: 30.0,
             ),
             onPressed: () async {
-              context.pop();
+              context.pushNamed('IniciarSesion');
             },
           ),
           actions: [
@@ -174,7 +174,7 @@ class _MenuWidgetState extends State<MenuWidget> with TickerProviderStateMixin {
                   await authManager.signOut();
                   GoRouter.of(context).clearRedirectLocation();
 
-                  context.goNamedAuth('Menu', context.mounted);
+                  context.goNamedAuth('IniciarSesion', context.mounted);
                 },
                 child: Icon(
                   Icons.login_sharp,

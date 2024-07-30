@@ -214,7 +214,7 @@ class _IniciarSesionWidgetState extends State<IniciarSesionWidget> {
                     return;
                   }
 
-                  context.goNamedAuth('ChatEmergencia', context.mounted);
+                  context.goNamedAuth('Menu', context.mounted);
                 },
                 text: 'Ingresar',
                 options: FFButtonOptions(
