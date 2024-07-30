@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import '/backend/backend.dart';
 
 import '/auth/base_auth_user_provider.dart';
 
@@ -156,7 +157,15 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'ActualizarPerfil',
           path: '/actualizarPerfil',
-          builder: (context, params) => const ActualizarPerfilWidget(),
+          asyncParams: {
+            'user': getDoc(['users'], UsersRecord.fromSnapshot),
+          },
+          builder: (context, params) => ActualizarPerfilWidget(
+            user: params.getParam(
+              'user',
+              ParamType.Document,
+            ),
+          ),
         ),
         FFRoute(
           name: 'InfoPerfil',
@@ -171,7 +180,15 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'ActualizarCorreo',
           path: '/actualizarCorreo',
-          builder: (context, params) => const ActualizarCorreoWidget(),
+          asyncParams: {
+            'correo': getDoc(['users'], UsersRecord.fromSnapshot),
+          },
+          builder: (context, params) => ActualizarCorreoWidget(
+            correo: params.getParam(
+              'correo',
+              ParamType.Document,
+            ),
+          ),
         ),
         FFRoute(
           name: 'ActualizarMetodoDePago',

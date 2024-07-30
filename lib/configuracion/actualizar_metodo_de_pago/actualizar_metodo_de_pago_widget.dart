@@ -1,26 +1,29 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'actualizar_correo_model.dart';
-export 'actualizar_correo_model.dart';
+import 'actualizar_metodo_de_pago_model.dart';
+export 'actualizar_metodo_de_pago_model.dart';
 
-class ActualizarCorreoWidget extends StatefulWidget {
-  const ActualizarCorreoWidget({super.key});
+class ActualizarMetodoDePagoWidget extends StatefulWidget {
+  const ActualizarMetodoDePagoWidget({super.key});
 
   @override
-  State<ActualizarCorreoWidget> createState() => _ActualizarCorreoWidgetState();
+  State<ActualizarMetodoDePagoWidget> createState() =>
+      _ActualizarMetodoDePagoWidgetState();
 }
 
-class _ActualizarCorreoWidgetState extends State<ActualizarCorreoWidget> {
-  late ActualizarCorreoModel _model;
+class _ActualizarMetodoDePagoWidgetState
+    extends State<ActualizarMetodoDePagoWidget> {
+  late ActualizarMetodoDePagoModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => ActualizarCorreoModel());
+    _model = createModel(context, () => ActualizarMetodoDePagoModel());
 
     _model.textController1 ??= TextEditingController();
     _model.textFieldFocusNode1 ??= FocusNode();
@@ -30,6 +33,9 @@ class _ActualizarCorreoWidgetState extends State<ActualizarCorreoWidget> {
 
     _model.textController3 ??= TextEditingController();
     _model.textFieldFocusNode3 ??= FocusNode();
+
+    _model.textController4 ??= TextEditingController();
+    _model.textFieldFocusNode4 ??= FocusNode();
   }
 
   @override
@@ -59,20 +65,29 @@ class _ActualizarCorreoWidgetState extends State<ActualizarCorreoWidget> {
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   children: [
-                    const Padding(
+                    Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 0.0, 0.0),
-                      child: Icon(
-                        Icons.arrow_back,
-                        color: Color(0xFF04132B),
-                        size: 30.0,
+                          const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 0.0, 0.0),
+                      child: InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          context.safePop();
+                        },
+                        child: const Icon(
+                          Icons.arrow_back,
+                          color: Color(0xFF04132B),
+                          size: 30.0,
+                        ),
                       ),
                     ),
                     Padding(
                       padding:
                           const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
                       child: Text(
-                        'Perfil',
+                        'Método de Pago',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Readex Pro',
                               fontSize: 18.0,
@@ -125,17 +140,78 @@ class _ActualizarCorreoWidgetState extends State<ActualizarCorreoWidget> {
                     Padding(
                       padding:
                           const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 0.0, 0.0),
-                      child: Text(
-                        'Nombre de usuario',
-                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Readex Pro',
-                              color: const Color(0xFF04132B),
-                              fontSize: 16.0,
-                              letterSpacing: 0.0,
-                            ),
+                      child: AuthUserStreamWidget(
+                        builder: (context) => Text(
+                          currentUserDisplayName,
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Readex Pro',
+                                    color: const Color(0xFF04132B),
+                                    fontSize: 16.0,
+                                    letterSpacing: 0.0,
+                                  ),
+                        ),
                       ),
                     ),
                   ],
+                ),
+              ),
+            ],
+          ),
+          Row(
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              Flexible(
+                child: Align(
+                  alignment: const AlignmentDirectional(0.0, 0.0),
+                  child: Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: Container(
+                      width: MediaQuery.sizeOf(context).width * 1.0,
+                      height: 75.0,
+                      decoration: const BoxDecoration(
+                        color: Color(0xFF0D3B4E),
+                        borderRadius: BorderRadius.only(
+                          bottomLeft: Radius.circular(20.0),
+                          bottomRight: Radius.circular(20.0),
+                          topLeft: Radius.circular(20.0),
+                          topRight: Radius.circular(20.0),
+                        ),
+                      ),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Align(
+                            alignment: const AlignmentDirectional(-1.0, 0.0),
+                            child: Padding(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  30.0, 0.0, 15.0, 0.0),
+                              child: Icon(
+                                Icons.credit_score,
+                                color: FlutterFlowTheme.of(context)
+                                    .secondaryBackground,
+                                size: 24.0,
+                              ),
+                            ),
+                          ),
+                          Align(
+                            alignment: const AlignmentDirectional(-1.0, 0.0),
+                            child: Text(
+                              'Tarjeta de Crédito/Debito',
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Readex Pro',
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                    letterSpacing: 0.0,
+                                  ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
                 ),
               ),
             ],
@@ -159,7 +235,7 @@ class _ActualizarCorreoWidgetState extends State<ActualizarCorreoWidget> {
                       autofocus: true,
                       obscureText: false,
                       decoration: InputDecoration(
-                        labelText: 'Ingrese su correo electrónico actual',
+                        labelText: 'Ingrese los números de su tarjeta',
                         labelStyle:
                             FlutterFlowTheme.of(context).labelMedium.override(
                                   fontFamily: 'Readex Pro',
@@ -169,6 +245,7 @@ class _ActualizarCorreoWidgetState extends State<ActualizarCorreoWidget> {
                         hintStyle:
                             FlutterFlowTheme.of(context).labelMedium.override(
                                   fontFamily: 'Readex Pro',
+                                  color: const Color(0xFF04132B),
                                   letterSpacing: 0.0,
                                 ),
                         enabledBorder: UnderlineInputBorder(
@@ -200,7 +277,7 @@ class _ActualizarCorreoWidgetState extends State<ActualizarCorreoWidget> {
                           borderRadius: BorderRadius.circular(8.0),
                         ),
                         prefixIcon: const Icon(
-                          Icons.person,
+                          Icons.add_card,
                           color: Color(0xFF04132B),
                         ),
                       ),
@@ -235,7 +312,7 @@ class _ActualizarCorreoWidgetState extends State<ActualizarCorreoWidget> {
                       autofocus: true,
                       obscureText: false,
                       decoration: InputDecoration(
-                        labelText: 'Ingrese su nuevo correo electrónico',
+                        labelText: 'Ingrese la fecha de expiración',
                         labelStyle:
                             FlutterFlowTheme.of(context).labelMedium.override(
                                   fontFamily: 'Readex Pro',
@@ -277,7 +354,7 @@ class _ActualizarCorreoWidgetState extends State<ActualizarCorreoWidget> {
                           borderRadius: BorderRadius.circular(8.0),
                         ),
                         prefixIcon: const Icon(
-                          Icons.person,
+                          Icons.date_range_outlined,
                           color: Color(0xFF04132B),
                         ),
                       ),
@@ -312,7 +389,7 @@ class _ActualizarCorreoWidgetState extends State<ActualizarCorreoWidget> {
                       autofocus: true,
                       obscureText: false,
                       decoration: InputDecoration(
-                        labelText: 'Confirmar correo',
+                        labelText: 'CVV',
                         labelStyle:
                             FlutterFlowTheme.of(context).labelMedium.override(
                                   fontFamily: 'Readex Pro',
@@ -354,7 +431,7 @@ class _ActualizarCorreoWidgetState extends State<ActualizarCorreoWidget> {
                           borderRadius: BorderRadius.circular(8.0),
                         ),
                         prefixIcon: const Icon(
-                          Icons.person,
+                          Icons.info_outline,
                           color: Color(0xFF04132B),
                         ),
                       ),
@@ -370,13 +447,90 @@ class _ActualizarCorreoWidgetState extends State<ActualizarCorreoWidget> {
               ),
             ],
           ),
+          Row(
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              Container(
+                width: MediaQuery.sizeOf(context).width * 1.0,
+                height: 75.0,
+                decoration: BoxDecoration(
+                  color: FlutterFlowTheme.of(context).secondaryBackground,
+                ),
+                child: Align(
+                  alignment: const AlignmentDirectional(0.0, 0.0),
+                  child: Padding(
+                    padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
+                    child: TextFormField(
+                      controller: _model.textController4,
+                      focusNode: _model.textFieldFocusNode4,
+                      autofocus: true,
+                      obscureText: false,
+                      decoration: InputDecoration(
+                        labelText: 'Dirección de Facturación',
+                        labelStyle:
+                            FlutterFlowTheme.of(context).labelMedium.override(
+                                  fontFamily: 'Readex Pro',
+                                  color: const Color(0xFF04132B),
+                                  letterSpacing: 0.0,
+                                ),
+                        hintStyle:
+                            FlutterFlowTheme.of(context).labelMedium.override(
+                                  fontFamily: 'Readex Pro',
+                                  color: const Color(0xFF04132B),
+                                  letterSpacing: 0.0,
+                                ),
+                        enabledBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(
+                            color: FlutterFlowTheme.of(context).alternate,
+                            width: 2.0,
+                          ),
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
+                        focusedBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(
+                            color: FlutterFlowTheme.of(context).primary,
+                            width: 2.0,
+                          ),
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
+                        errorBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(
+                            color: FlutterFlowTheme.of(context).error,
+                            width: 2.0,
+                          ),
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
+                        focusedErrorBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(
+                            color: FlutterFlowTheme.of(context).error,
+                            width: 2.0,
+                          ),
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
+                        prefixIcon: const Icon(
+                          Icons.public,
+                          color: Color(0xFF04132B),
+                        ),
+                      ),
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            fontFamily: 'Readex Pro',
+                            letterSpacing: 0.0,
+                          ),
+                      validator:
+                          _model.textController4Validator.asValidator(context),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
           Padding(
             padding: const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
             child: FFButtonWidget(
               onPressed: () {
                 print('Button pressed ...');
               },
-              text: 'Actualizar Correo',
+              text: 'Agregar Método de Pago',
               options: FFButtonOptions(
                 height: 40.0,
                 padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),

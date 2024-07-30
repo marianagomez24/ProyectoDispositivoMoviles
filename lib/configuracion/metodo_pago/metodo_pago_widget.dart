@@ -1,3 +1,4 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -50,13 +51,22 @@ class _MetodoPagoWidgetState extends State<MetodoPagoWidget> {
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   children: [
-                    const Padding(
+                    Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 0.0, 0.0),
-                      child: Icon(
-                        Icons.arrow_back,
-                        color: Color(0xFF04132B),
-                        size: 30.0,
+                          const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 0.0, 0.0),
+                      child: InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          context.safePop();
+                        },
+                        child: const Icon(
+                          Icons.arrow_back,
+                          color: Color(0xFF04132B),
+                          size: 30.0,
+                        ),
                       ),
                     ),
                     Padding(
@@ -116,14 +126,17 @@ class _MetodoPagoWidgetState extends State<MetodoPagoWidget> {
                     Padding(
                       padding:
                           const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 0.0, 0.0),
-                      child: Text(
-                        'Nombre de usuario',
-                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Readex Pro',
-                              color: const Color(0xFF04132B),
-                              fontSize: 16.0,
-                              letterSpacing: 0.0,
-                            ),
+                      child: AuthUserStreamWidget(
+                        builder: (context) => Text(
+                          currentUserDisplayName,
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Readex Pro',
+                                    color: const Color(0xFF04132B),
+                                    fontSize: 16.0,
+                                    letterSpacing: 0.0,
+                                  ),
+                        ),
                       ),
                     ),
                   ],
@@ -195,8 +208,8 @@ class _MetodoPagoWidgetState extends State<MetodoPagoWidget> {
           Padding(
             padding: const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
             child: FFButtonWidget(
-              onPressed: () {
-                print('Button pressed ...');
+              onPressed: () async {
+                context.pushNamed('ActualizarMetodoDePago');
               },
               text: 'Agregar Nuevo Método de Pago',
               options: FFButtonOptions(

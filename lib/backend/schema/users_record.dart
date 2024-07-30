@@ -45,6 +45,21 @@ class UsersRecord extends FirestoreRecord {
   String get phoneNumber => _phoneNumber ?? '';
   bool hasPhoneNumber() => _phoneNumber != null;
 
+  // "cedula" field.
+  String? _cedula;
+  String get cedula => _cedula ?? '';
+  bool hasCedula() => _cedula != null;
+
+  // "direccion" field.
+  String? _direccion;
+  String get direccion => _direccion ?? '';
+  bool hasDireccion() => _direccion != null;
+
+  // "sexo" field.
+  String? _sexo;
+  String get sexo => _sexo ?? '';
+  bool hasSexo() => _sexo != null;
+
   void _initializeFields() {
     _email = snapshotData['email'] as String?;
     _displayName = snapshotData['display_name'] as String?;
@@ -52,6 +67,9 @@ class UsersRecord extends FirestoreRecord {
     _uid = snapshotData['uid'] as String?;
     _createdTime = snapshotData['created_time'] as DateTime?;
     _phoneNumber = snapshotData['phone_number'] as String?;
+    _cedula = snapshotData['cedula'] as String?;
+    _direccion = snapshotData['direccion'] as String?;
+    _sexo = snapshotData['sexo'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -94,6 +112,9 @@ Map<String, dynamic> createUsersRecordData({
   String? uid,
   DateTime? createdTime,
   String? phoneNumber,
+  String? cedula,
+  String? direccion,
+  String? sexo,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -103,6 +124,9 @@ Map<String, dynamic> createUsersRecordData({
       'uid': uid,
       'created_time': createdTime,
       'phone_number': phoneNumber,
+      'cedula': cedula,
+      'direccion': direccion,
+      'sexo': sexo,
     }.withoutNulls,
   );
 
@@ -119,7 +143,10 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e1?.photoUrl == e2?.photoUrl &&
         e1?.uid == e2?.uid &&
         e1?.createdTime == e2?.createdTime &&
-        e1?.phoneNumber == e2?.phoneNumber;
+        e1?.phoneNumber == e2?.phoneNumber &&
+        e1?.cedula == e2?.cedula &&
+        e1?.direccion == e2?.direccion &&
+        e1?.sexo == e2?.sexo;
   }
 
   @override
@@ -129,7 +156,10 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e?.photoUrl,
         e?.uid,
         e?.createdTime,
-        e?.phoneNumber
+        e?.phoneNumber,
+        e?.cedula,
+        e?.direccion,
+        e?.sexo
       ]);
 
   @override

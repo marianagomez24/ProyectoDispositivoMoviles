@@ -1,29 +1,35 @@
+import '/auth/firebase_auth/auth_util.dart';
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'actualizar_perfil_model.dart';
-export 'actualizar_perfil_model.dart';
+import 'actualizar_correo_model.dart';
+export 'actualizar_correo_model.dart';
 
-class ActualizarPerfilWidget extends StatefulWidget {
-  const ActualizarPerfilWidget({super.key});
+class ActualizarCorreoWidget extends StatefulWidget {
+  const ActualizarCorreoWidget({
+    super.key,
+    required this.correo,
+  });
+
+  final UsersRecord? correo;
 
   @override
-  State<ActualizarPerfilWidget> createState() => _ActualizarPerfilWidgetState();
+  State<ActualizarCorreoWidget> createState() => _ActualizarCorreoWidgetState();
 }
 
-class _ActualizarPerfilWidgetState extends State<ActualizarPerfilWidget> {
-  late ActualizarPerfilModel _model;
+class _ActualizarCorreoWidgetState extends State<ActualizarCorreoWidget> {
+  late ActualizarCorreoModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => ActualizarPerfilModel());
+    _model = createModel(context, () => ActualizarCorreoModel());
 
-    _model.textController1 ??= TextEditingController();
+    _model.textController1 ??= TextEditingController(text: currentUserEmail);
     _model.textFieldFocusNode1 ??= FocusNode();
 
     _model.textController2 ??= TextEditingController();
@@ -31,9 +37,6 @@ class _ActualizarPerfilWidgetState extends State<ActualizarPerfilWidget> {
 
     _model.textController3 ??= TextEditingController();
     _model.textFieldFocusNode3 ??= FocusNode();
-
-    _model.textController4 ??= TextEditingController();
-    _model.textFieldFocusNode4 ??= FocusNode();
   }
 
   @override
@@ -130,22 +133,13 @@ class _ActualizarPerfilWidgetState extends State<ActualizarPerfilWidget> {
                       padding:
                           const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 0.0, 0.0),
                       child: Text(
-                        'Cambiar foto de perfil',
+                        'Nombre de usuario',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Readex Pro',
                               color: const Color(0xFF04132B),
                               fontSize: 16.0,
                               letterSpacing: 0.0,
                             ),
-                      ),
-                    ),
-                    const Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 0.0, 0.0),
-                      child: FaIcon(
-                        FontAwesomeIcons.solidEdit,
-                        color: Color(0xFF04132B),
-                        size: 24.0,
                       ),
                     ),
                   ],
@@ -172,7 +166,7 @@ class _ActualizarPerfilWidgetState extends State<ActualizarPerfilWidget> {
                       autofocus: true,
                       obscureText: false,
                       decoration: InputDecoration(
-                        labelText: 'Nombre Completo',
+                        labelText: 'Ingrese su correo electrónico actual',
                         labelStyle:
                             FlutterFlowTheme.of(context).labelMedium.override(
                                   fontFamily: 'Readex Pro',
@@ -248,7 +242,7 @@ class _ActualizarPerfilWidgetState extends State<ActualizarPerfilWidget> {
                       autofocus: true,
                       obscureText: false,
                       decoration: InputDecoration(
-                        labelText: 'Número de Cedula',
+                        labelText: 'Ingrese su nuevo correo electrónico',
                         labelStyle:
                             FlutterFlowTheme.of(context).labelMedium.override(
                                   fontFamily: 'Readex Pro',
@@ -325,7 +319,7 @@ class _ActualizarPerfilWidgetState extends State<ActualizarPerfilWidget> {
                       autofocus: true,
                       obscureText: false,
                       decoration: InputDecoration(
-                        labelText: 'Dirección',
+                        labelText: 'Confirmar correo',
                         labelStyle:
                             FlutterFlowTheme.of(context).labelMedium.override(
                                   fontFamily: 'Readex Pro',
@@ -383,90 +377,51 @@ class _ActualizarPerfilWidgetState extends State<ActualizarPerfilWidget> {
               ),
             ],
           ),
-          Row(
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              Container(
-                width: MediaQuery.sizeOf(context).width * 1.0,
-                height: 75.0,
-                decoration: BoxDecoration(
-                  color: FlutterFlowTheme.of(context).secondaryBackground,
-                ),
-                child: Align(
-                  alignment: const AlignmentDirectional(0.0, 0.0),
-                  child: Padding(
-                    padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
-                    child: TextFormField(
-                      controller: _model.textController4,
-                      focusNode: _model.textFieldFocusNode4,
-                      autofocus: true,
-                      obscureText: false,
-                      decoration: InputDecoration(
-                        labelText: 'Sexo',
-                        labelStyle:
-                            FlutterFlowTheme.of(context).labelMedium.override(
-                                  fontFamily: 'Readex Pro',
-                                  color: const Color(0xFF04132B),
-                                  letterSpacing: 0.0,
-                                ),
-                        hintStyle:
-                            FlutterFlowTheme.of(context).labelMedium.override(
-                                  fontFamily: 'Readex Pro',
-                                  letterSpacing: 0.0,
-                                ),
-                        enabledBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(
-                            color: FlutterFlowTheme.of(context).alternate,
-                            width: 2.0,
-                          ),
-                          borderRadius: BorderRadius.circular(8.0),
-                        ),
-                        focusedBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(
-                            color: FlutterFlowTheme.of(context).primary,
-                            width: 2.0,
-                          ),
-                          borderRadius: BorderRadius.circular(8.0),
-                        ),
-                        errorBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(
-                            color: FlutterFlowTheme.of(context).error,
-                            width: 2.0,
-                          ),
-                          borderRadius: BorderRadius.circular(8.0),
-                        ),
-                        focusedErrorBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(
-                            color: FlutterFlowTheme.of(context).error,
-                            width: 2.0,
-                          ),
-                          borderRadius: BorderRadius.circular(8.0),
-                        ),
-                        prefixIcon: const Icon(
-                          Icons.person,
-                          color: Color(0xFF04132B),
-                        ),
-                      ),
-                      style: FlutterFlowTheme.of(context).bodyMedium.override(
-                            fontFamily: 'Readex Pro',
-                            color: const Color(0xFF04132B),
-                            letterSpacing: 0.0,
-                          ),
-                      validator:
-                          _model.textController4Validator.asValidator(context),
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
           Padding(
             padding: const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
             child: FFButtonWidget(
-              onPressed: () {
-                print('Button pressed ...');
+              onPressed: () async {
+                await widget.correo!.reference.update(createUsersRecordData(
+                  email: _model.textController2.text,
+                ));
+                if (_model.textController2.text ==
+                    _model.textController3.text) {
+                  await showDialog(
+                    context: context,
+                    builder: (alertDialogContext) {
+                      return AlertDialog(
+                        title: const Text('Se cambio el correo'),
+                        content:
+                            const Text('El correo ha sido cambiado exitosamente'),
+                        actions: [
+                          TextButton(
+                            onPressed: () => Navigator.pop(alertDialogContext),
+                            child: const Text('Ok'),
+                          ),
+                        ],
+                      );
+                    },
+                  );
+                } else {
+                  await showDialog(
+                    context: context,
+                    builder: (alertDialogContext) {
+                      return AlertDialog(
+                        title: const Text('Datos ingresados incorrectos'),
+                        content: const Text(
+                            'Por favor, el correo de confirmación debe ser el mismo'),
+                        actions: [
+                          TextButton(
+                            onPressed: () => Navigator.pop(alertDialogContext),
+                            child: const Text('Ok'),
+                          ),
+                        ],
+                      );
+                    },
+                  );
+                }
               },
-              text: 'Actualizar Datos',
+              text: 'Actualizar Correo',
               options: FFButtonOptions(
                 height: 40.0,
                 padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
@@ -474,7 +429,7 @@ class _ActualizarPerfilWidgetState extends State<ActualizarPerfilWidget> {
                 color: const Color(0xFF0D3B4E),
                 textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                       fontFamily: 'Readex Pro',
-                      color: Colors.white,
+                      color: FlutterFlowTheme.of(context).secondaryBackground,
                       letterSpacing: 0.0,
                     ),
                 elevation: 3.0,
