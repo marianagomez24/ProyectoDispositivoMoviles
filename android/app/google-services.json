@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "870483455779",
+    "project_id": "sistema-citas-medicas-mb9jik",
+    "storage_bucket": "sistema-citas-medicas-mb9jik.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:870483455779:android:1b42277591299eb65be696",
+        "android_client_info": {
+          "package_name": "com.mycompany.sistemacitasmedicas"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBfrLv5hCQYwVIAwlXt4W5HLqXmDrZovC0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
